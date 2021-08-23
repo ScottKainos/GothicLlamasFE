@@ -24,6 +24,17 @@ describe('Basic set up testing', () => {
         expect(res.render).toHaveBeenCalledWith('job-roles', {})
     });
 
+    test("root route serves index html page", () => {
+        //call get function here?
+        expect(mockApp.get).toHaveBeenCalledWith('/', expect.any(Function))
+
+        const behaviour = mockApp.get.mock.calls[0][1] // grab the second [1] param of the first [0] call
+        const res = { render: jest.fn() }
+        //call function used by get handler
+        behaviour(null, res)
+        expect(res.render).toHaveBeenCalledWith('index')
+    });
+
     test('Start successfully and listen on port 7999', () => {
         expect(mockApp.listen).toHaveBeenCalledWith(7999, expect.any(Function))
     })
