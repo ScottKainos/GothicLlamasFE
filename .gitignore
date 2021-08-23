@@ -1,0 +1,10 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# DB Credentials
+db.properties
+
+# Intellij related
+.DS_Store
+.idea
