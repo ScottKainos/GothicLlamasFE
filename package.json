@@ -4,7 +4,7 @@
   "description": "Team  GothicLLamas front-end repo.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,8 @@
     "express": "^4.17.1",
     "nunjucks": "^3.2.3",
     "xpress": "^2.4.6"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
   }
 }
