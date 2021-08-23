@@ -1,0 +1,24 @@
+{
+  "name": "GothicLlamasFE",
+  "version": "1.0.0",
+  "description": "Team  GothicLLamas front-end repo.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reespozzi/GothicLlamasFE.git"
+  },
+  "keywords": [],
+  "author": "Scott Boyd <scott.boyd@kainos.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reespozzi/GothicLlamasFE/issues"
+  },
+  "homepage": "https://github.com/reespozzi/GothicLlamasFE#readme",
+  "dependencies": {
+    "nunjucks": "^3.2.3",
+    "xpress": "^2.4.6"
+  }
+}
