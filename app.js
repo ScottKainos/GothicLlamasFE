@@ -18,7 +18,7 @@ var middle = function (req, res, next) {
 
 //render the homepage when root of site accessed
 app.get('/', function (req, res) {
-    res.render('index');
+    res.render('index');    
 });
 
 //render the job-roles page
