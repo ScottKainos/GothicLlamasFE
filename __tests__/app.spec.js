@@ -21,7 +21,6 @@ describe('Basic set up testing', () => {
         
         //call function used by get handler
         behaviour(null, res)
-
         expect(res.render).toHaveBeenCalledWith('job-roles', {})
     });
 
