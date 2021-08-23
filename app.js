@@ -21,6 +21,11 @@ app.get('/', function (req, res) {
     res.render('index');
 });
 
+//render the job-roles page
+app.get('/job-roles', function (req, res) {
+    res.render('job-roles', {});
+});
+
 app.use(middle)
 
 //start listening on 7999 port
