@@ -41,6 +41,11 @@ app.get('/testJava', function(req, res){
         hostname: 'localhost',
         port: 8080,
         // Can set below attributes as and when they need to be used.
+
+        /**
+         * In future this will be post to send data to java API
+         * Or get to forward a request onto the java API
+         */
         path: '/hello.html',
         method: 'GET',
         headers: {
@@ -48,10 +53,17 @@ app.get('/testJava', function(req, res){
         }
     };
     
-    //http.request async, needs fix
-    const javaAPIReq = http.request(httpConfig)
-    javaAPIReq.end()
-    console.log(javaAPIReq)
+    const request = http.request(httpConfig, (res) => {
+  
+        res.on('data', (chunk) => {
+          console.log(`BODY: ${chunk}`);
+        });
+
+        res.on('end', () => {
+          console.log('No more data in response.');
+        });
+    });
+    request.end();
 });
 
 //start listening on 7999 port
