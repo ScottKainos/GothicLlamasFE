@@ -4,19 +4,17 @@ on: [push]
 
 jobs:
   build-test:
-
     runs-on: ubuntu-latest
-
     steps:
-   - name: Checkout
-       uses: actions/checkout@v2
-       with:
-         fetch-depth: 0
-     - name: Setup NodeJS 14
-       uses: actions/setup-node@v1
-       with:
-         node-version: 14
-    - name: Run Jest
-      uses: stefanoeb/jest-action@1.0.3
+      - name: Checkout
+          uses: actions/checkout@v2
+          with:
+            fetch-depth: 0
+        - name: Setup NodeJS 14
+          uses: actions/setup-node@v1
+          with:
+            node-version: 14
+        - name: Run Jest
+          uses: stefanoeb/jest-action@1.0.3
 
-    - run: echo "🍏 This job's status is ${{ job.status }}."
+        - run: echo "🍏 This job's status is ${{ job.status }}."
