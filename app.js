@@ -41,6 +41,8 @@ app.get('/job-roles', async function (req, res) {
             // handle data
             console.log(data)
             apiData = data
+        }else{
+            throw err;
         }
     }catch(err){
         console.log("Endpoint unreachable.")
