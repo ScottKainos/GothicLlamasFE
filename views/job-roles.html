@@ -1,13 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Roles</title>
-    <h1>This is a job-roles test</h1>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends "./template.html" %}
+
+{% block pageTitle %}
+<title>Job Roles</title>
+{% endblock %}
+
+{% block content %}
+<h1>Job Roles within Kainos</h1>
+<img src="file://../../resources/kainosBanner.png"/>
+
+{% for object in apiData %}
+    <p> {{object.jobRole}} </p>
+{% endfor %}
+
+{% endblock %}
