@@ -21,7 +21,7 @@ describe('Basic set up testing', () => {
         
         //call function used by get handler
         behaviour(null, res)
-        expect(res.render).toHaveBeenCalledWith('job-roles', {})
+        expect(res.render).toHaveBeenCalledWith('job-roles2', {})
     });
 
     test("root route serves index html page", () => {
