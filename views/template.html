@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block pageTitle %}
+        <title> Kainos Career Lattice Management </title>
+    {% endblock %}
+    <style>
+.header {
+  padding: 10px;
+  text-align: left;
+  background: white;
+  color: #000080;
+  font-size: 20px;
+}
+.inline {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px;
+  font-size: 20px;
+}
+h1 {
+  text-align: center;
+}
+</style>
+</head>
+<body style="background-color: rgb(255, 255, 255);">
+<div class="header">
+    <div class="inline">
+        <a href="/job-roles"><img src="resources/kainoslogo.jpg" alt="kainos logo" width="20" height="50"></a>
+    </div>
+    <div class="inline">
+    <a href="/job-roles" style="display:inline-block;">Job Roles</a>
+    </div>
+    <div class="inline">
+    <a href="/job-roles" style="display:inline-block;">Job Description</a>
+    </div>
+    <div class="inline">
+    <a href="/job-roles" style="display:inline-block;">Job Specification</a>
+    </div>
+    <div class="inline">
+        <a href="/job-roles" style="display:inline-block;">Capabilities</a>
+    </div>
+</div>
+
+{% block content %}
+
+
+{% endblock %}  
+</body>
+</html>
