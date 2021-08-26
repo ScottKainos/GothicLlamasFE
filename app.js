@@ -30,12 +30,8 @@ app.get('/', function (req, res) {
 
 
 //render the job-roles page
-app.get('/job-roles', function (req, res) {
-    res.render('job-roles', {});
-});
-
-//inital POC to test 3-tier architecture
-app.get('/testJava', async function(req, res){
+app.get('/job-roles', async function (req, res) {
+    let apiData= {}
     try{
         let response = await fetch('http://localhost:8000/api/print/h').catch(e => { console.log(e) });    
         //ensure page has been gathered
@@ -43,11 +39,14 @@ app.get('/testJava', async function(req, res){
             let data = await response.json().catch(e => { console.log(e) });
             // handle data
             console.log(data)
+            apiData = data
         }
     }catch(err){
         console.log("Endpoint unreachable.")
     }
+    res.render('job-roles', apiData);
 });
+
 
 app.use(middle)
 //start listening on 7999 port
