@@ -36,57 +36,18 @@ app.get('/job-roles', function (req, res) {
 
 //inital POC to test 3-tier architecture
 app.get('/testJava', async function(req, res){
-    // //TODO
     try{
-        let response = await fetch('http://localhost:8000/api/print/h').catch(e => { console.log(e) });
-        console.log("here")
-        console.log(response.status); // 200
-        console.log(response.statusText); // OK
-
+        let response = await fetch('http://localhost:8000/api/print/h').catch(e => { console.log(e) });    
+        //ensure page has been gathered
         if (response.status === 200) {
             let data = await response.json().catch(e => { console.log(e) });
             // handle data
             console.log(data)
- 
         }
     }catch(err){
-        console.log("oh dear")
+        console.log("Endpoint unreachable.")
     }
-    // const httpConfig = {
-    //     hostname: 'localhost',
-    //     port: 8000,
-    //     /**
-    //      * In future this will be post to send data to java API
-    //      * Or get to forward a request onto the java API
-    //      */
-    //     path: '/api/print/poc',
-    //     method: 'GET',
-    //     headers: {
-    //         'Content-Type': 'text/html',
-    //     }
-    // };
-    // const request = http.request(httpConfig);
-
-    // console.log(req.body)
-    // request.on('error', function(error) {
-    //     console.error("Endpoint unreachable")
-    //     res.render('index')
-    // });
-    // request.end();  
 });
-
-async function fetchText() {
-    let response = await fetch('localhost:8000/api/print/h');
-
-    console.log(response.status); // 200
-    console.log(response.statusText); // OK
-
-    if (response.status === 200) {
-        let data = await response.text();
-        // handle data
-    }
-}
-
 
 app.use(middle)
 //start listening on 7999 port
