@@ -6,10 +6,11 @@
 
 {% block content %}
 <h1>Job Roles within Kainos</h1>
-<img src="file://../../resources/kainosBanner.png"/>
 
-{% for object in apiData %}
+<div class="roles">
+    {% for object in apiData %}
     <p> {{object.jobRole}} </p>
-{% endfor %}
+    {% endfor %}
+</div>
 
 {% endblock %}
