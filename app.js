@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser')
 const nunjucks = require('nunjucks');
 const http = require('http');
+const fetch = require('node-fetch')
 
 /**
  * Only add new .get() methods below current last one
@@ -33,39 +34,61 @@ app.get('/job-roles', function (req, res) {
     res.render('job-roles', {});
 });
 
-app.use(middle)
+//inital POC to test 3-tier architecture
+app.get('/testJava', async function(req, res){
+    // //TODO
+    try{
+        let response = await fetch('http://localhost:8000/api/print/h').catch(e => { console.log(e) });
+        console.log("here")
+        console.log(response.status); // 200
+        console.log(response.statusText); // OK
 
-app.get('/testJava', function(req, res){
-    //TODO
-    const httpConfig = {
-        hostname: 'localhost',
-        port: 8080,
-        // Can set below attributes as and when they need to be used.
-
-        /**
-         * In future this will be post to send data to java API
-         * Or get to forward a request onto the java API
-         */
-        path: '/hello.html',
-        method: 'GET',
-        headers: {
-            'Content-Type': 'text/html',
+        if (response.status === 200) {
+            let data = await response.json().catch(e => { console.log(e) });
+            // handle data
+            console.log(data)
+ 
         }
-    };
-    
-    const request = http.request(httpConfig, (res) => {
-  
-        res.on('data', (chunk) => {
-          console.log(`BODY: ${chunk}`);
-        });
+    }catch(err){
+        console.log("oh dear")
+    }
+    // const httpConfig = {
+    //     hostname: 'localhost',
+    //     port: 8000,
+    //     /**
+    //      * In future this will be post to send data to java API
+    //      * Or get to forward a request onto the java API
+    //      */
+    //     path: '/api/print/poc',
+    //     method: 'GET',
+    //     headers: {
+    //         'Content-Type': 'text/html',
+    //     }
+    // };
+    // const request = http.request(httpConfig);
 
-        res.on('end', () => {
-          console.log('No more data in response.');
-        });
-    });
-    request.end();
+    // console.log(req.body)
+    // request.on('error', function(error) {
+    //     console.error("Endpoint unreachable")
+    //     res.render('index')
+    // });
+    // request.end();  
 });
 
+async function fetchText() {
+    let response = await fetch('localhost:8000/api/print/h');
+
+    console.log(response.status); // 200
+    console.log(response.statusText); // OK
+
+    if (response.status === 200) {
+        let data = await response.text();
+        // handle data
+    }
+}
+
+
+app.use(middle)
 //start listening on 7999 port
 app.listen(7999, function() {
     console.log('Started')
