@@ -1,12 +1,7 @@
 name: CI
 # Trigger the workflow on push or pull request,
-on: 
-push
-# Trigger the workflow on push to main or in other words merging a PR,
-# see https://github.community/t/trigger-workflow-only-on-pull-request-merge/17359/2
-  push:
-    branches:
-      - main
+on: [push]
+
 jobs:
 # build test name of status that is set to green or red depending on if tests succeed
 # used for pr merging rules and requests
