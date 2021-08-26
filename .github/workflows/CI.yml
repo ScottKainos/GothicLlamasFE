@@ -1,8 +1,15 @@
 name: CI
-
-on: [push]
-
+# Trigger the workflow on push or pull request,
+on: 
+push
+# Trigger the workflow on push to main or in other words merging a PR,
+# see https://github.community/t/trigger-workflow-only-on-pull-request-merge/17359/2
+  push:
+    branches:
+      - main
 jobs:
+# build test name of status that is set to green or red depending on if tests succeed
+# used for pr merging rules and requests
   build-test:
 
     runs-on: ubuntu-latest
@@ -12,4 +19,4 @@ jobs:
     - name: Run Jest
       uses: stefanoeb/jest-action@1.0.3
 
-    - run: echo "🍏 This job's status is ${{ job.status }}."
+    - run: echo "This job's status is ${{ job.status }}."
