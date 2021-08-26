@@ -3,7 +3,8 @@ const app = express();
 const bodyParser = require('body-parser')
 const nunjucks = require('nunjucks');
 const http = require('http');
-const fetch = require('node-fetch')
+const fetch = require('node-fetch');
+const { response } = require('express');
 
 /**
  * Only add new .get() methods below current last one
@@ -44,7 +45,7 @@ app.get('/job-roles', async function (req, res) {
     }catch(err){
         console.log("Endpoint unreachable.")
     }
-    res.render('job-roles', apiData);
+    res.render('job-roles', {apiData});
 });
 
 
