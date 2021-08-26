@@ -1,5 +1,5 @@
-name: Test after PR merge
-# Trigger the workflow on push to main or in other words merging a PR,
+name: Test after PR merge To Main
+# Trigger the workflow on push to main or in other words merging a PR
 # see https://github.community/t/trigger-workflow-only-on-pull-request-merge/17359/2on: 
 on:  
   push:
