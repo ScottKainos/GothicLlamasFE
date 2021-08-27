@@ -11,17 +11,17 @@ jest.mock('express', () => jest.fn(() => mockApp))
 require('../app.js')
 
 describe('Basic set up testing', () => {
-    test("job-roles Route serves job-roles html page", () => {
+    test("job-roles Route serves job-roles html page", async () => {
         //call get function here?
-        expect(mockApp.get).toHaveBeenCalledWith('/job-roles', expect.any(Function))
+        await expect(mockApp.get).toHaveBeenCalledWith('/job-roles', expect.any(Function))
 
         //tracks all app.get calls when require('../app.js') line is run, get ('job-roles') is second hence [1][1] call
         const behaviour = mockApp.get.mock.calls[1][1] // grab the second [1] param of the second [1] call
         const res = { render: jest.fn() }
         
         //call function used by get handler
-        behaviour(null, res)
-        expect(res.render).toHaveBeenCalledWith('job-roles', {})
+        await behaviour(null, res)
+        await expect(res.render).toHaveBeenCalledWith('job-roles', expect.anything())
     });
 
     test("root route serves index html page", () => {

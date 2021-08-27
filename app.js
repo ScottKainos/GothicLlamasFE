@@ -3,6 +3,8 @@ const app = express();
 const bodyParser = require('body-parser')
 const nunjucks = require('nunjucks');
 const http = require('http');
+const fetch = require('node-fetch');
+const { response } = require('express');
 
 /**
  * Only add new .get() methods below current last one
@@ -29,43 +31,48 @@ app.get('/', function (req, res) {
 
 
 //render the job-roles page
-app.get('/job-roles', function (req, res) {
-    res.render('job-roles', {});
+app.get('/job-roles', async function (req, res) {
+    let apiData= {}
+    try{
+        let response = await fetch('http://localhost:8000/api/JobRoles').catch(e => { console.log(e) });    
+        //ensure page has been gathered
+        if (response.status === 200) {
+            let data = await response.json().catch(e => { console.log(e) });
+            // handle data
+            console.log(data)
+            apiData = data
+        }else{
+            throw err;
+        }
+    }catch(err){
+        console.log("Endpoint unreachable.")
+    }
+    res.render('job-roles', {apiData});
 });
+
+
+//render the job-spec page
+app.get('/job-spec', async function (req, res) {
+    let jobSpec = {}
+    try{
+        let response = await fetch('http://localhost:8000/api/JobSpecifications').catch(e => { console.log(e) });    
+        //ensure page has been gathered
+        if (response.status === 200) {
+            let data = await response.json().catch(e => { console.log(e) });
+            // handle data
+            console.log(data)
+            jobSpec = data
+        }else{
+            throw err;
+        }
+    }catch(err){
+        console.log("Endpoint unreachable.")
+    }
+    res.render('job-spec', {jobSpec});
+});
+
 
 app.use(middle)
-
-app.get('/testJava', function(req, res){
-    //TODO
-    const httpConfig = {
-        hostname: 'localhost',
-        port: 8080,
-        // Can set below attributes as and when they need to be used.
-
-        /**
-         * In future this will be post to send data to java API
-         * Or get to forward a request onto the java API
-         */
-        path: '/hello.html',
-        method: 'GET',
-        headers: {
-            'Content-Type': 'text/html',
-        }
-    };
-    
-    const request = http.request(httpConfig, (res) => {
-  
-        res.on('data', (chunk) => {
-          console.log(`BODY: ${chunk}`);
-        });
-
-        res.on('end', () => {
-          console.log('No more data in response.');
-        });
-    });
-    request.end();
-});
-
 //start listening on 7999 port
 app.listen(7999, function() {
     console.log('Started')
