@@ -8,14 +8,27 @@
 <h1>Job Role Specification</h1>
 
 <div class="roles">
-    {% for object in jobSpec %}
-    <!--
-        //TODO
-        Dynamically create <tr> elements for each of the three columns
-        on the HTML page
-    -->
-    <p> {{object}} </p>
-    {% endfor %}
+    <table>
+        <thead>
+        <tr>
+            <th>Job Role</th>
+            <th>Job Description</th>
+            <th>Job Specification</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for object in jobSpec %}
+            <tr>
+                <td> {{ object.jobRole }} </td>
+                <td> {{ object.jobDescription }} </td>
+                <td> <a href="{{ object.linkToFullDescription }}">Click here to see more</a></td>
+            </tr>
+        </tbody>
+        {% endfor %}
+        <tfoot></tfoot>
+
+
+    </table>
 </div>
 
 {% endblock %}
