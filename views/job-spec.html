@@ -1,0 +1,21 @@
+{% extends "./template.html" %}
+
+{% block pageTitle %}
+<title>Job Specifications</title>
+{% endblock %}
+
+{% block content %}
+<h1>Job Role Specification</h1>
+
+<div class="roles">
+    {% for object in jobSpec %}
+    <!--
+        //TODO
+        Dynamically create <tr> elements for each of the three columns
+        on the HTML page
+    -->
+    <p> {{object}} </p>
+    {% endfor %}
+</div>
+
+{% endblock %}

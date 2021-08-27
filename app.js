@@ -53,7 +53,7 @@ app.get('/job-roles', async function (req, res) {
 
 //render the job-spec page
 app.get('/job-spec', async function (req, res) {
-    let apiData= {}
+    let jobSpec = {}
     try{
         let response = await fetch('http://localhost:8000/api/JobSpecifications').catch(e => { console.log(e) });    
         //ensure page has been gathered
@@ -61,7 +61,7 @@ app.get('/job-spec', async function (req, res) {
             let data = await response.json().catch(e => { console.log(e) });
             // handle data
             console.log(data)
-            apiData = data
+            jobSpec = data
         }else{
             throw err;
         }
