@@ -34,7 +34,7 @@ app.get('/', function (req, res) {
 app.get('/job-roles', async function (req, res) {
     let apiData= {}
     try{
-        let response = await fetch('http://localhost:8000/api/print/h').catch(e => { console.log(e) });    
+        let response = await fetch('http://localhost:8000/api/JobRoles').catch(e => { console.log(e) });    
         //ensure page has been gathered
         if (response.status === 200) {
             let data = await response.json().catch(e => { console.log(e) });
@@ -48,6 +48,27 @@ app.get('/job-roles', async function (req, res) {
         console.log("Endpoint unreachable.")
     }
     res.render('job-roles', {apiData});
+});
+
+
+//render the job-spec page
+app.get('/job-spec', async function (req, res) {
+    let jobSpec = {}
+    try{
+        let response = await fetch('http://localhost:8000/api/JobSpecifications').catch(e => { console.log(e) });    
+        //ensure page has been gathered
+        if (response.status === 200) {
+            let data = await response.json().catch(e => { console.log(e) });
+            // handle data
+            console.log(data)
+            jobSpec = data
+        }else{
+            throw err;
+        }
+    }catch(err){
+        console.log("Endpoint unreachable.")
+    }
+    res.render('job-spec', {jobSpec});
 });
 
 
