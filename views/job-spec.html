@@ -5,13 +5,18 @@
 {% endblock %}
 
 {% block content %}
-<h1>Job Role Specification</h1>
+<div class="heading">
+    <h1>Job Role Specification</h1>
+    <img src="whiteBanner.png">
+</div>
+
 
 <div class="roles">
     <table>
         <thead>
         <tr>
             <th>Job Role</th>
+            <th>Band Level</th>
             <th>Job Description</th>
             <th>Job Specification</th>
         </tr>
@@ -20,6 +25,7 @@
             {% for object in jobSpec %}
             <tr>
                 <td> {{ object.jobRole }} </td>
+                <td> {{ object.capability }} </td>
                 <td> {{ object.jobDescription }} </td>
                 <td> <a href="{{ object.linkToFullDescription }}">Click here to see more</a></td>
             </tr>
