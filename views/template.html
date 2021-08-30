@@ -37,20 +37,67 @@ td, th {
     border: 1px solid #000000;
     padding: 10px;
 }
+.container {
+    position: relative;
+    colour: black;
+}
+.top-left {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+}
+.align-left {
+    width: 800px;
+    grid-template-columns: 120px 120px 120px;
+    align-items: start;
+    float: left;
+    justify-content: space-between;
+    color: black;
+    border: 1px solid #000000;
+    margin-bottom:20px;
+    padding: 5px;
+    margin-left: 40px;
+}
+.align-right {
+    width: 500px;
+    grid-template-columns: 120px 120px 120px;
+    align-items: right;
+    float: left;
+    justify-content: space-between;
+    color: #02075d;
+    border: 1px solid #000000;
+    margin-left:20px;
+    padding: 5px;
+    margin-right: 40px;
+}
+.heading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 60px;
+}
+.tbanner {
+    position: relative;
+    text-align: center;
+    color: black;
+    height: 60px;
+    margin-bottom: 40px;
+}
+
 
 </style>
 </head>
 <body style="background-color: rgb(255, 255, 255);">
 <div class="header">
     <div class="inline">
-        <a href="/"><img src="resources/kainoslogo.jpg" alt="kainos logo" width="20" height="50"></a>
+        <a href="/"><img src="https://raw.githubusercontent.com/ScottKainos/GothicLlamasFE/main/resources/kainoslogo.jpg" alt="kainos logo" width="150" height="50"></a>
     </div>
     <div class="inline">
     <a href="/job-roles" style="display:inline-block;">Job Roles</a>
     </div>
     <div class="inline">
     <a href="/job-spec" style="display:inline-block;">Job Specification</a>
-
     </div>
     <div class="inline">
         <a href="#" style="display:inline-block;">Capabilities</a>
@@ -62,4 +109,10 @@ td, th {
 
 {% endblock %}  
 </body>
+<footer>
+    <div class="container">
+        <img src="https://raw.githubusercontent.com/ScottKainos/GothicLlamasFE/main/resources/kainosBanner.png" alt="banner" style="width:100%;">
+        <div class="top-left">Social Links</div>
+    </div>
+</footer>
 </html>
