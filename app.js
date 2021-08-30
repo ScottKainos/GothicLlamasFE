@@ -1,10 +1,7 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser')
 const nunjucks = require('nunjucks');
-const http = require('http');
 const fetch = require('node-fetch');
-const { response } = require('express');
 
 /**
  * Only add new .get() methods below current last one
@@ -42,10 +39,11 @@ app.get('/job-roles', async function (req, res) {
             console.log(data)
             apiData = data
         }else{
-            throw err;
+            throw err
         }
     }catch(err){
         console.log("Endpoint unreachable.")
+        throw err
     }
     res.render('job-roles', {apiData});
 });
@@ -77,7 +75,7 @@ app.get('/job-capabilities', async function (req, res) {
     try{
         let response = await fetch('http://localhost:8000/api/JobCapability').catch(e => { console.log(e) });    
         //ensure page has been gathered
-        if (response.status === 200 || response.status === 204) {
+        if (response.status === 200) {
             let data = await response.json().catch(e => { console.log(e) });
             // handle data
             console.log(data)
