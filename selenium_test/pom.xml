@@ -75,11 +75,10 @@
             <version>3.3.9</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.testautomationguru.ocular/ocular -->
         <dependency>
-            <groupId>com.testautomationguru.ocular</groupId>
-            <artifactId>ocular</artifactId>
-            <version>1.0.0.Alpha</version>
+            <groupId>com.applitools</groupId>
+            <artifactId>eyes-selenium-java3</artifactId>
+            <version>RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
