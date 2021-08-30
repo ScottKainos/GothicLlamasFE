@@ -4,18 +4,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import us_selenium_test.framework.FunctionalTest;
 
-public class US001_test extends FunctionalTest {
-
+public class US002_test extends FunctionalTest {
     private String indexPageUrl = "http://localhost:7999";
-    private String jobRolePageUrl = "http://localhost:7999/job-roles";
+    private String jobSpecPageUrl = "http://localhost:7999/job-spec";
 
     @Test
-    public void isJobRolePageExist_TC01(){
+    public void isJobSpecPageExist_TC01(){
         driver.get(indexPageUrl);
-        WebElement jobRoleLink = driver.findElement(By.linkText("Job Roles"));
+        WebElement jobRoleLink = driver.findElement(By.linkText("Job Specification"));
         jobRoleLink.click();
         String URL = driver.getCurrentUrl();
-        Assert.assertEquals(jobRolePageUrl, URL );
+        Assert.assertEquals(jobSpecPageUrl, URL );
         System.out.println(URL);
     }
 
@@ -23,5 +22,4 @@ public class US001_test extends FunctionalTest {
     public void isJobRolePageLooksLikeShould_TC02(){
 
     }
-
 }
