@@ -77,13 +77,13 @@ app.get('/job-capabilities', async function (req, res) {
         if (response.status === 200) {
             let data = await response.json().catch(e => { console.log(e) });
             // handle data
-            console.log(data)
             jobCapability = data
         }else{
             throw err;
         }
     }catch(err){
         console.log("Endpoint unreachable or returned no body.")
+        throw err
     }
     res.render('job-capability', {jobCapability});
 });
