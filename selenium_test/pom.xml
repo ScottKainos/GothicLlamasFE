@@ -63,6 +63,41 @@
             <artifactId>selenium-safari-driver</artifactId>
             <version>4.0.0-alpha-7</version>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-repository-metadata</artifactId>
+            <version>3.3.9</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.testautomationguru.ocular/ocular -->
+        <dependency>
+            <groupId>com.testautomationguru.ocular</groupId>
+            <artifactId>ocular</artifactId>
+            <version>1.0.0.Alpha</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>7.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>3.141.59</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
 
