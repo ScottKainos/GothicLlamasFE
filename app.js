@@ -108,7 +108,6 @@ app.get('/band-levels', async function (req, res) {
     res.render('band-levels', {bandLevels});
 });
 
-
 app.use(middle)
 //start listening on 7999 port
 app.listen(7999, function() {
