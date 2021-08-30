@@ -71,6 +71,26 @@ app.get('/job-spec', async function (req, res) {
     res.render('job-spec', {jobSpec});
 });
 
+//render job-capabilities 
+app.get('/job-capabilities', async function (req, res) {
+    let jobCapability = {}
+    try{
+        let response = await fetch('http://localhost:8000/api/JobCapability').catch(e => { console.log(e) });    
+        //ensure page has been gathered
+        if (response.status === 200 || response.status === 204) {
+            let data = await response.json().catch(e => { console.log(e) });
+            // handle data
+            console.log(data)
+            jobCapability = data
+        }else{
+            throw err;
+        }
+    }catch(err){
+        console.log("Endpoint unreachable or returned no body.")
+    }
+    res.render('job-capability', {jobCapability});
+});
+
 
 app.use(middle)
 //start listening on 7999 port
