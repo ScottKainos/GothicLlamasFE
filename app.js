@@ -88,6 +88,26 @@ app.get('/job-capabilities', async function (req, res) {
     res.render('job-capability', {jobCapability});
 });
 
+//render band-levels 
+app.get('/band-levels', async function (req, res) {
+    let bandLevels = {}
+    try{
+        let response = await fetch('http://localhost:8000/api/BandLevels').catch(e => { console.log(e) });    
+        //ensure page has been gathered
+        if (response.status === 200) {
+            let data = await response.json().catch(e => { console.log(e) });
+            // handle data
+            bandLevels = data
+        }else{
+            throw err;
+        }
+    }catch(err){
+        console.log("Endpoint unreachable or returned no body.")
+        throw err
+    }
+    res.render('band-levels', {bandLevels});
+});
+
 
 app.use(middle)
 //start listening on 7999 port
