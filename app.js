@@ -36,7 +36,6 @@ app.get('/job-roles', async function (req, res) {
         if (response.status === 200) {
             let data = await response.json().catch(e => { console.log(e) });
             // handle data
-            console.log(data)
             apiData = data
         }else{
             throw err
@@ -58,13 +57,13 @@ app.get('/job-spec', async function (req, res) {
         if (response.status === 200) {
             let data = await response.json().catch(e => { console.log(e) });
             // handle data
-            console.log(data)
             jobSpec = data
         }else{
             throw err;
         }
     }catch(err){
         console.log("Endpoint unreachable.")
+        throw err;
     }
     res.render('job-spec', {jobSpec});
 });
