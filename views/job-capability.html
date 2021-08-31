@@ -13,55 +13,26 @@
     </div>
 </div>
 
-<div class="select">
-    <p><b>Select a capability:</b>
-    <select id="select1">
-        <option value="Software Engineer, Test Engineer, Principal Architect, Software Engineer, Senior Software Engineer, Solution Architect, Innovation Lead">Engineering</option>
-        <option value="Trainee Platforms Engineer, Systems Support Engineer, Senior Platforms Engineer, Service Category Lead, Cloud Migration Architect, Principal Architect">Platfroms</option>
-        <option value="Principal Data Solutions Architect, Senior Data Anaylst">Data</option>
-        <option value="AI Engineering Manager, Associate AI Engineer">Artificial Intelligence</option>
-        <option value="Security Architect, Cyber Risk Assessor">Cyber Security</option>
-        <option value="Product Consultant (Principal), Product Consultant">Product</option>
-        <option value="Client Services Manager, Engagement Manager">Delivery</option>
-        <option value="Finance Trainee, Finance Consultant">Commercial and Financial Management</option>
-        <option value="People Support Trainee, People Support Consultant">People</option>
-        <option value="Trainee Business Services, Business Services Support Consultant">Business Services Support</option>
-        <option value="Operations Manager, Staffing Consultant">Operations</option>
-        <option value="Senior Business Development Associate, Marketing Assistant">Business Development and Marketing</option>
-        <option value="Manager, Head of Quality and Compliance">Organisational Strategy and Planning</option>
-    </select>
-</p>
 
-    <button onclick="getJobRoles()">Check Job Roles Available</button>
-
-    <p></p>
-
-    <script type="text/javascript">
-
-        function getJobRoles() {
-            selectElement = document.querySelector('#select1');
-
-            output =
-              selectElement.options[selectElement.selectedIndex].value;
-
-            document.querySelector('.output').textContent = output;
-        }
-    </script>
-</div>
-
-<div class="roles">
+<div class="capabilities">
     <table>
         <thead>
         <tr>
-            <th>Job Roles within the Capability</th>
+            <th>Job Role</th>
+            <th>Capability</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td><span class="output"></span></td>
-        </tr>
+            {% for object in jobCapability %}
+            <tr>
+                <td> {{ object.jobRole }} </td>
+                <td> {{ object.capability }} </td>
+            </tr>
         </tbody>
+        {% endfor %}
         <tfoot></tfoot>
+
+
     </table>
 </div>
 {% endblock %}

@@ -78,6 +78,8 @@ app.get('/job-capabilities', async function (req, res) {
             let data = await response.json().catch(e => { console.log(e) });
             // handle data
             jobCapability = data
+            console.log(jobCapability)
+
         }else{
             throw err;
         }
