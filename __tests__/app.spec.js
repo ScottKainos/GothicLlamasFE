@@ -6,12 +6,13 @@ const mockApp = {
     set: jest.fn(),
     use: jest.fn()
 }
+const mockServer = { listen: jest.fn() }
 jest.mock('express', () => jest.fn(() => mockApp))
-
 const mockNodeFetch = jest.fn()
 jest.mock('node-fetch', () => mockNodeFetch)
 
-require('../app.js')
+require('../app')
+require('../routes')
 
 describe('Basic set up testing', () => {
     describe('job-roles testing', () => {
