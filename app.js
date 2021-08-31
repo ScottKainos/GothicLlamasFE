@@ -1,10 +1,7 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser')
 const nunjucks = require('nunjucks');
-const http = require('http');
 const fetch = require('node-fetch');
-const { response } = require('express');
 
 /**
  * Only add new .get() methods below current last one
@@ -18,17 +15,10 @@ nunjucks.configure('views', {
 
 app.set('view engine', 'html');
 
-var middle = function (req, res, next) {
-    console.log('middleware');
-    //calls next function which may be another middleware, if not it calls original callback on url requested
-    next();
-};
-
 //render the homepage when root of site accessed
 app.get('/', function (req, res) {
     res.render('index');    
 });
-
 
 //render the job-roles page
 app.get('/job-roles', async function (req, res) {
@@ -39,13 +29,13 @@ app.get('/job-roles', async function (req, res) {
         if (response.status === 200) {
             let data = await response.json().catch(e => { console.log(e) });
             // handle data
-            console.log(data)
             apiData = data
         }else{
-            throw err;
+            throw err
         }
     }catch(err){
         console.log("Endpoint unreachable.")
+        throw err
     }
     res.render('job-roles', {apiData});
 });
@@ -60,19 +50,40 @@ app.get('/job-spec', async function (req, res) {
         if (response.status === 200) {
             let data = await response.json().catch(e => { console.log(e) });
             // handle data
-            console.log(data)
             jobSpec = data
         }else{
             throw err;
         }
     }catch(err){
         console.log("Endpoint unreachable.")
+        throw err;
     }
     res.render('job-spec', {jobSpec});
 });
 
+//render job-capabilities 
+app.get('/job-capabilities', async function (req, res) {
+    let jobCapability = {}
+    try{
+        let response = await fetch('http://localhost:8000/api/JobCapability').catch(e => { console.log(e) });    
+        //ensure page has been gathered
+        if (response.status === 200) {
+            let data = await response.json().catch(e => { console.log(e) });
+            // handle data
+            jobCapability = data
+        }else{
+            throw err;
+        }
+    }catch(err){
+        console.log("Endpoint unreachable or returned no body.")
+        throw err
+    }
+    res.render('job-capability', {jobCapability});
+});
 
-app.use(middle)
+
+app.use(express.static('resources'))
+
 //start listening on 7999 port
 app.listen(7999, function() {
     console.log('Started')
