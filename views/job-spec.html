@@ -1,0 +1,37 @@
+{% extends "./template.html" %}
+
+{% block pageTitle %}
+<title>Job Specifications</title>
+{% endblock %}
+
+{% block content %}
+<div class="tbanner">
+    <img src="https://raw.githubusercontent.com/ScottKainos/GothicLlamasFE/main/resources/whiteBanner.png" alt="white banner" style="width:100%;" height="100px">
+    <div class="heading">
+        <h1>Job Role Specification</h1>
+    </div>
+</div>
+
+
+<div class="roles">
+    <table>
+        <thead>
+        <tr>
+            <th>Job Role</th>
+            <th>Job Description</th>
+            <th>Job Specification</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for object in jobSpec %}
+            <tr>
+                <td> {{ object.jobRole }} </td>
+                <td> {{ object.jobDescription }} </td>
+                <td> <a href="{{ object.linkToFullDescription }}">Click here to see more</a></td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

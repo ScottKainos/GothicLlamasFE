@@ -1,13 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Roles</title>
-    <h1>This is a job-roles test</h1>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends "./template.html" %}
+
+{% block pageTitle %}
+<title>Job Roles</title>
+{% endblock %}
+
+{% block content %}
+<div class="tbanner">
+    <img src="https://raw.githubusercontent.com/ScottKainos/GothicLlamasFE/main/resources/whiteBanner.png" alt="white banner" style="width:100%;" height="100px">
+    <div class="heading">
+        <h1>Job Roles within Kainos</h1>
+    </div>
+</div>
+
+<div class="roles">
+    {% for object in apiData %}
+    <p> {{object.jobRole}} </p>
+    {% endfor %}
+</div>
+
+{% endblock %}
