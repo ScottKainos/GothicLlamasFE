@@ -6,6 +6,9 @@
   "scripts": {
     "test": "jest"
   },
+  "scripts":{
+    "start": "node app.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/reespozzi/GothicLlamasFE.git"
