@@ -90,6 +90,7 @@ app.get('/job-capabilities', async function (req, res) {
 
 
 app.use(middle)
+app.use(express.static('resources'))
 //start listening on 7999 port
 app.listen(7999, function() {
     console.log('Started')
