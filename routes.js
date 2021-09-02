@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const nunjucks = require('nunjucks')
 const fetch = require('node-fetch')
+const nonDuplicateMapper = require('./ReturnNonDuplicateArrays')
 
 /**
  * Only add new .get() methods below current last one
@@ -72,6 +73,7 @@ app.get('/job-capabilities', async function (req, res) {
             let data = await response.json().catch(e => { console.log(e) })
             // handle data
             jobCapability = data
+
         }else{
             throw err
         }
@@ -79,7 +81,9 @@ app.get('/job-capabilities', async function (req, res) {
         console.log("Endpoint unreachable or returned no body.")
         throw err
     }
-    res.render('job-capability', {jobCapability})
+    //fetch non duplicate array (set) of capabilities
+    var capabilities = nonDuplicateMapper.returnCapabilities(jobCapability)
+    res.render('job-capability', {jobCapability, capabilities})
 })
 
 //render band-levels 
@@ -99,7 +103,9 @@ app.get('/band-levels', async function (req, res) {
         console.log("Endpoint unreachable or returned no body.")
         throw err
     }
-    res.render('band-levels', {bandLevels})
+    var bandLevelsSet = returnBandLevels(bandLevels)
+    console.log(bandLevelsSet)
+    res.render('band-levels', {bandLevels, bandLevelsSet})
 })
 
 app.use(express.static('resources'))
