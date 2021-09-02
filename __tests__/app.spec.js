@@ -46,12 +46,12 @@ describe('Basic set up testing', () => {
             expect(mockApp.get).toHaveBeenCalledWith('/job-spec', expect.any(Function))
         })
 
-        test("job-spec route serves job-roles html page unhappy path", async () => {
+        test("job-spec route serves job-spec html page unhappy path", async () => {
             expect.assertions(2)
             await unhappyPathErrorThrown('request to http://localhost:8000/api/JobSpecifications failed, reason: connect ECONNREFUSED 127.0.0.1:8000', 2)
         })
 
-        test("job-spec route serves job-roles html page happy path", async () => {
+        test("job-spec route serves job-spec html page happy path", async () => {
             mockNodeFetch.mockImplementationOnce(() => Promise.resolve({ status: 200, json: () => Promise.resolve({ data: "Test Data" })}))
             //tracks all app.get calls when require('../app.js') line is run, get ('job-roles') is second hence [1][1] call
             const behaviour = mockApp.get.mock.calls[2][1] // grab the second [1] param of the second [1] call
@@ -63,16 +63,16 @@ describe('Basic set up testing', () => {
     })
 
     describe("job-capabilities page testing", () =>{
-        test("route for job-cabalities get method set up in express", () => {
+        test("route for job-capabalities get method set up in express", () => {
             expect(mockApp.get).toHaveBeenCalledWith('/job-capabilities', expect.any(Function))
         })
 
-        test("job-spec route serves job-capabilites html page unhappy path", async () => {
+        test("job-capabilites route serves job-capabilities html page unhappy path", async () => {
             expect.assertions(2)
             await unhappyPathErrorThrown('request to http://localhost:8000/api/JobCapability failed, reason: connect ECONNREFUSED 127.0.0.1:8000', 3)
         })
 
-        test("job-spec route serves job-roles html page happy path", async () => {
+        test("job-capabilites route serves job-capabilities html page happy path", async () => {
             mockNodeFetch.mockImplementationOnce(() => Promise.resolve({ status: 200, json: () => Promise.resolve({ data: "Test Data" })}))
             //tracks all app.get calls when require('../app.js') line is run, get ('job-roles') is second hence [1][1] call
             const behaviour = mockApp.get.mock.calls[3][1] // grab the second [1] param of the second [1] call
@@ -95,7 +95,7 @@ describe('Basic set up testing', () => {
             await unhappyPathErrorThrown('request to http://localhost:8000/api/BandLevels failed, reason: connect ECONNREFUSED 127.0.0.1:8000', 4)
         })
 
-        test("band-levels route serves band-roles html page happy path", async () => {
+        test("band-levels route serves band-levels html page happy path", async () => {
             mockNodeFetch.mockImplementationOnce(() => Promise.resolve({ status: 200, json: () => Promise.resolve({ data: "Test Data" })}))
             //tracks all app.get calls when require('../app.js') line is run, get ('job-roles') is second hence [1][1] call
             const behaviour = mockApp.get.mock.calls[4][1] // grab the second [1] param of the second [1] call
