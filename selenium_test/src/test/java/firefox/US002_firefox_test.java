@@ -8,7 +8,7 @@ import us_selenium_test.framework.FunctionalTestFirefox;
 
 import java.util.List;
 
-public class US002_firefox extends FunctionalTestFirefox {
+public class US002_firefox_test extends FunctionalTestFirefox {
 
     private String indexPageUrl = "http://localhost:7999";
     private String jobSpecPageUrl = "http://localhost:7999/job-spec";

@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.openqa.selenium.remote.CapabilityType.BROWSER_VERSION;
 
-public class FunctionalTest {
+public class FunctionalTestChrome {
 
     protected static WebDriver driver;
     protected final static String browserVersion = System.getProperty(BROWSER_VERSION);
