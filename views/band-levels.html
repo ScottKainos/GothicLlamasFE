@@ -21,7 +21,7 @@
         </tr>
         </thead>
         <tbody>
-            {% for object in jobSpec %}
+            {% for object in bandLevels %}
             <tr>
                 <td> {{ object.jobRole }} </td>
                 <td> {{ object.bandLevel }} </td>
@@ -30,6 +30,4 @@
         {% endfor %}
     </table>
 </div>
-
-
 {% endblock %}
