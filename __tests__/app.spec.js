@@ -5,6 +5,7 @@ const mockApp = {
     listen: jest.fn(),
     set: jest.fn(),
     use: jest.fn(),
+    map: jest.fn()
 }
 
 const mockExpress = jest.fn(() => mockApp)

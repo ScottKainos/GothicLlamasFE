@@ -103,8 +103,7 @@ app.get('/band-levels', async function (req, res) {
         console.log("Endpoint unreachable or returned no body.")
         throw err
     }
-    var bandLevelsSet = returnBandLevels(bandLevels)
-    console.log(bandLevelsSet)
+    var bandLevelsSet = nonDuplicateMapper.returnBandLevels(bandLevels)
     res.render('band-levels', {bandLevels, bandLevelsSet})
 })
 

@@ -12,3 +12,4 @@ function returnBandLevels(bandLevels){
 }
 
 module.exports.returnCapabilities = returnCapabilities
+module.exports.returnBandLevels = returnBandLevels
