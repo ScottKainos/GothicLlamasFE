@@ -4,7 +4,9 @@
   "description": "Team  GothicLLamas front-end repo.",
   "main": "app.js",
   "scripts": {
-    "test": "jest"
+    "start": "node app.js",
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "repository": {
     "type": "git",

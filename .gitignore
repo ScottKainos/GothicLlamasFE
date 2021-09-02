@@ -8,3 +8,7 @@ db.properties
 # Intellij related
 .DS_Store
 .idea
+
+# Selenium related 
+
+.selenium_test/target/
