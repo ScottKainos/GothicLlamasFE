@@ -24,14 +24,11 @@
 h1 {
   text-align: center;
 }
-.roles {
+.roles, .capabilities, .roles-per-band {
     text-align: center;
     margin-bottom: 10px;
 }
-.capabilities {
-    text-align: center;
-    margin-bottom: 10px;
-}
+
 table {
     margin-left: auto;
     margin-right: auto;
@@ -48,7 +45,8 @@ td, th {
 }
 .top-left {
     position: absolute;
-    bottom: 10px;
+    display: block;
+    top: 10px;
     left: 20px;
 }
 .align-left {
@@ -110,6 +108,9 @@ td, th {
     <div class="inline">
         <a href="/job-capabilities" style="display:inline-block;">Capabilities</a>
     </div>
+    <div class="inline">
+        <a href="/band-levels" style="display:inline-block;">Band Levels</a>
+    </div>
 </div>
 
 {% block content %}
@@ -119,8 +120,12 @@ td, th {
 </body>
 <footer>
     <div class="container">
-        <img src="kainosBanner.png" alt="banner" style="width:100%;">
-        <div class="top-left">Social Links</div>
+        <img src="/kainosBanner.png" alt="banner" style="width:100%;">
+        <div class="top-left">Social Links
+            <a href="https://www.instagram.com/kainossoftware/?hl=en"><img src="instagramLogo.png" alt="instagram" style="width:2.5%"></a>
+            <a href="https://www.facebook.com/KainosSoftware/"><img src="facebook.png" alt="facebook" style="width:2.5%"></a>
+            <a href="https://twitter.com/KainosSoftware?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img src="twitter.png" alt="twitter" style="width:2.5%"></a>
+        </div>
     </div>
 </footer>
 </html>
