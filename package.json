@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test" : "jest",
+    "test": "jest",
     "test-watch": "jest --watch"
   },
   "repository": {
@@ -26,6 +26,6 @@
     "xpress": "^2.4.6"
   },
   "devDependencies": {
-    "jest": "^27.0.6"
+    "jest": "^27.1.0"
   }
 }

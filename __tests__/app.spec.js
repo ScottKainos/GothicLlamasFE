@@ -5,8 +5,8 @@ const mockApp = {
     listen: jest.fn(),
     set: jest.fn(),
     use: jest.fn(),
-    map: jest.fn()
 }
+
 
 const mockExpress = jest.fn(() => mockApp)
 mockExpress.static = jest.fn()  
@@ -17,6 +17,7 @@ const mockNodeFetch = jest.fn()
 jest.mock('node-fetch', () => mockNodeFetch)
     
 require('../app.js')
+jest.mock('../ReturnNonDuplicateArrays')
 
 
 describe('Basic set up testing', () => {
