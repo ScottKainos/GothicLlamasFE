@@ -102,6 +102,5 @@ app.get('/band-levels', async function (req, res) {
     res.render('band-levels', {bandLevels})
 })
 
-
-
+app.use(express.static('resources'))
 module.exports = app
