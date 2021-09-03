@@ -1,15 +1,11 @@
-function returnCapabilities(jobCapability){
-     //collect all capabilities into set to remove duplicates
-    return new Set(jobCapability.map(function(object){
-        return object.capability;
-    }))
+/**
+ * Function to map an array into a set of values 
+ * @param {} inputArray array to be mapped
+ * @param {*} mapper mapping function
+ * @returns 
+ */
+function mapDistinct(inputArray, mapper){
+    return new Set(inputArray.map(mapper))
 }
 
-function returnBandLevels(bandLevels){
-    return new Set(bandLevels.map(function(object){
-        return object.bandLevel;
-    }))
-}
-
-module.exports.returnCapabilities = returnCapabilities
-module.exports.returnBandLevels = returnBandLevels
+module.exports.mapDistinct = mapDistinct

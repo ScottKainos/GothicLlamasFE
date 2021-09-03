@@ -82,7 +82,8 @@ app.get('/job-capabilities', async function (req, res) {
         throw err
     }
     //fetch non duplicate array (set) of capabilities
-    var capabilities = nonDuplicateMapper.returnCapabilities(jobCapability)
+    var capabilities = nonDuplicateMapper.mapDistinct(jobCapability, (object) => object.capability)
+
     res.render('job-capability', {jobCapability, capabilities})
 })
 
@@ -103,7 +104,8 @@ app.get('/band-levels', async function (req, res) {
         console.log("Endpoint unreachable or returned no body.")
         throw err
     }
-    var bandLevelsSet = nonDuplicateMapper.returnBandLevels(bandLevels)
+    //fetch set of band levels
+    var bandLevelsSet = nonDuplicateMapper.mapDistinct(bandLevels, (object) => object.bandLevel)
     res.render('band-levels', {bandLevels, bandLevelsSet})
 })
 
