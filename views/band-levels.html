@@ -12,21 +12,25 @@
     </div>
 </div>
 
-<div class="roles-per-band">
+
+
+<div class = "roles-per-band">
     <table>
-        <thead>
         <tr>
-            <th>Job Role</th>
             <th>Band Level</th>
+            <th>Roles</th>
         </tr>
-        </thead>
-        <tbody>
-            {% for object in bandLevels %}
+        {% for bandLevel in bandLevelsSet %}
             <tr>
-                <td> {{ object.jobRole }} </td>
-                <td> {{ object.bandLevel }} </td>
+                <td>{{ bandLevel }}</td>
+                <td>
+                    {% for object in bandLevels %}
+                        {% if (object.bandLevel == bandLevel) %}
+                            <p> {{ object.jobRole }} </p>
+                        {% endif %}
+                    {% endfor %}
+                </td>
             </tr>
-        </tbody>
         {% endfor %}
     </table>
 </div>
