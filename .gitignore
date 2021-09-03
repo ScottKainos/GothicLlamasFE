@@ -8,3 +8,4 @@ db.properties
 # Intellij related
 .DS_Store
 .idea
+*.iml
