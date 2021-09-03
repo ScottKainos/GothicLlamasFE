@@ -13,23 +13,24 @@
     </div>
 </div>
 
-
 <div class="capabilities">
     <table>
-        <thead>
         <tr>
-            <th>Job Role</th>
-            <th>Capability</th>
+            <th>Capabilities</th>
+            <th>Roles</th>
         </tr>
-        </thead>
-        <tbody>
-            {% for object in jobCapability %}
+        {% for capability in capabilities %}
             <tr>
-                <td> {{ object.jobRole }} </td>
-                <td> {{ object.capability }} </td>
+                <td>{{capability}}</td>
+                <td>
+                    {% for object in jobCapability %}
+                        {% if (object.capability == capability) %}
+                            <p> {{ object.jobRole }} </p>
+                        {% endif %}
+                    {% endfor %}
+                </td>
             </tr>
-            {% endfor %}
-        </tbody>
+        {% endfor %}
     </table>
 </div>
 {% endblock %}
