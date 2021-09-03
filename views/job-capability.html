@@ -32,17 +32,5 @@
             </tr>
         {% endfor %}
     </table>
-
-    <!--   ALTERNATIVE METHOD, NEEDS REMOVING IF NOT USED AND PUSHING
-        {% for capability in capabilities %}
-            <h1> {{capability}} </h1>
-            {% for object in jobCapability %}
-                {% if (object.capability == capability) %}
-                    <p> {{ object.jobRole }} </p>
-                {% endif %}
-            {% endfor %}
-        {% endfor %}
-    -->
-
 </div>
 {% endblock %}

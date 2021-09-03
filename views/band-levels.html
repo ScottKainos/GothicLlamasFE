@@ -33,18 +33,5 @@
             </tr>
         {% endfor %}
     </table>
-
-    <!--   ALTERNATIVE METHOD, NEEDS REMOVING IF NOT USED AND PUSHING
-        {% for bandLevel in bandLevelsSet %}
-            <h1> {{ bandLevel }} </h1>
-            {% for object in bandLevels %}
-                {% if (object.bandLevel == bandLevel) %}
-                    <p> {{ object.bandLevel }} </p>
-                {% endif %}
-            {% endfor %}
-        {% endfor %}
-    -->
-
 </div>
-
 {% endblock %}
