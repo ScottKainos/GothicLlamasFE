@@ -1,5 +1,5 @@
 const { expect } = require('@jest/globals')
-const { mapDistinct } = require('../ReturnNonDuplicateArrays')
+const { mapDistinct } = require('../utils')
 
 
     
