@@ -9,18 +9,18 @@
     {% endblock %}
     <style>
 body {
-  font-family: Century Gothic, sans-serif;
+    font-family: Century Gothic, sans-serif;
  }
-.header {
-  padding: 10px;
-  text-align: left;
-  font-size: 20px;
+.tbanner {
+    position: relative;
+    display: flex;
 }
 .inline {
-  display: inline-block;
-  vertical-align: middle;
-  padding: 10px;
-  font-size: 20px;
+    position: absolute;
+    display: inline-block;
+    padding: 1%;
+    top: 10px;
+    font-size: 20px;
 }
 .roles {
     text-align: center;
@@ -30,13 +30,11 @@ body {
     text-align: center;
     margin-bottom: 10px;
 }
-
 table {
     margin-left: auto;
     margin-right: auto;
     width: 80%;
 }
-
 td, th, tr {
     border: 1px solid #000000;
     padding: 0.3%;
@@ -72,46 +70,26 @@ td, th, tr {
     font-weight: bold;
     margin-top: 15%;
 }
-.heading {
+.heading h1 {
     position: absolute;
-    top: 50%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     height: 60px;
-}
-.tbanner {
-    position: relative;
-    text-align: center;
-    color: black;
-    height: 60px;
-    margin-bottom: 40px;
-    padding-bottom: 6%;
-    font-family: Century Gothic, sans-serif;
-}
-.select {
-    padding-top: 20px;
-    text-align: center;
 }
 
 </style>
 </head>
 <body style="background-color: rgb(255, 255, 255);">
-<div class="header">
-    <div class="inline">
-        <a href="/"><img src="/kainoslogo.jpg" alt="kainos logo" width="150" height="50"></a>
-    </div>
-    <div class="inline">
+<div class="tbanner">
+    <img src="/whiteBanner.png" alt="white banner" style="width:100%;" height="250px" >
+</div>
+<div class="inline">
+    <a href="/"><img src="/kainoslogo.jpg" alt="kainos logo" width="150" height="50"></a>
     <a href="/job-roles" style="display:inline-block;">Job Roles</a>
-    </div>
-    <div class="inline">
     <a href="/job-spec" style="display:inline-block;">Job Specification</a>
-    </div>
-    <div class="inline">
-        <a href="/job-capabilities" style="display:inline-block;">Capabilities</a>
-    </div>
-    <div class="inline">
-        <a href="/band-levels" style="display:inline-block;">Band Levels</a>
-    </div>
+    <a href="/job-capabilities" style="display:inline-block;">Capabilities</a>
+    <a href="/band-levels" style="display:inline-block;">Band Levels</a>
 </div>
 
 {% block content %}
