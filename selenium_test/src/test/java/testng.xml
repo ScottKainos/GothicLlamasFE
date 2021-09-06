@@ -7,6 +7,7 @@
             <class name="chrome.US001_chrome_test" />
             <class name="chrome.US002_chrome_test" />
             <class name="chrome.US003_chrome_test" />
+            <class name="chrome.US004_chrome_test" />
         </classes>
     </test>
 
@@ -15,6 +16,7 @@
             <class name="edge.US001_edge_test" />
             <class name="edge.US002_edge_test" />
             <class name="edge.US003_edge_test" />
+            <class name="edge.US004_edge_test" />
         </classes>
     </test>
 
@@ -23,6 +25,7 @@
             <class name="firefox.US001_firefox_test" />
             <class name="firefox.US002_firefox_test" />
             <class name="firefox.US003_firefox_test" />
+            <class name="firefox.US004_firefox_test" />
         </classes>
     </test>
 
