@@ -25,9 +25,19 @@ public class US003_chrome_test extends FunctionalTestChrome {
     public void isCapabilitiesPageContentIsShow_TC02() {
         driver.get(capabilitiesPageUrl);
         //Find page content
-        WebElement capabilitiesContent = driver.findElement(By.xpath("//body/div[3]"));
+        WebElement capabilitiesContent = driver.findElement(By.className("capabilities"));
         //Check if page content isn't NULL
         Assert.assertNotNull(capabilitiesContent);
+    }
+
+    @Test
+    public void isCapabilitiesBannerIsShow_TC03(){
+        driver.get(capabilitiesPageUrl);
+        //Find page banner
+        By xpathPageBanner = By.xpath("//h1[contains(text(),'Capabilities')]");
+        WebElement capabilitiesPageBanner = driver.findElement(xpathPageBanner);
+        //Check if page banner isn't NULL
+        Assert.assertNotNull(capabilitiesPageBanner);
     }
 
 }

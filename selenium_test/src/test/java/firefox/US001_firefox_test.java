@@ -23,10 +23,21 @@ public class US001_firefox_test extends FunctionalTestFirefox {
     @Test
     public void isJobRolePageContentIsShow_TC02() {
         firefoxDriver.get(jobRolePageUrl);
-        //Find page content
-        WebElement pageContent = firefoxDriver.findElement(By.xpath("//body/div[3]"));
-        //Check if page content isn't NULL
-        Assert.assertNotNull(pageContent);
+        //Find page element div class named "roles"
+        WebElement roles = firefoxDriver.findElement(By.className("roles"));
+        //Check if this element isn't NULL
+        Assert.assertNotNull(roles);
+
+    }
+
+    @Test
+    public void isJobRolePageBannerIsShow_TC03() {
+        firefoxDriver.get(jobRolePageUrl);
+        //Find page banner
+        By xpathJobRolePageBanner = By.xpath("//h1[contains(text(),'Job Roles within Kainos')]");
+        WebElement jobRolePageBanner = firefoxDriver.findElement(xpathJobRolePageBanner);
+        //Check if page banner isn't NULL
+        Assert.assertNotNull(jobRolePageBanner);
 
     }
 }

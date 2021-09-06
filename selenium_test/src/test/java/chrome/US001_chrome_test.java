@@ -22,10 +22,21 @@ public class US001_chrome_test extends FunctionalTestChrome {
     @Test
     public void isJobRolePageContentIsShow_TC02() {
         driver.get(jobRolePageUrl);
-        //Find page content
-        WebElement jobRolePageContent = driver.findElement(By.xpath("//body/div[3]"));
-        //Check if page content isn't NULL
-        Assert.assertNotNull(jobRolePageContent);
+        //Find page element div class named "roles"
+        WebElement roles = driver.findElement(By.className("roles"));
+        //Check if this element isn't NULL
+        Assert.assertNotNull(roles);
+
+    }
+
+    @Test
+    public void isJobRolePageBannerIsShow_TC03() {
+        driver.get(jobRolePageUrl);
+        //Find page banner
+        By xpathJobRolePageBanner = By.xpath("//h1[contains(text(),'Job Roles within Kainos')]");
+        WebElement jobRolePageBanner = driver.findElement(xpathJobRolePageBanner);
+        //Check if page banner isn't NULL
+        Assert.assertNotNull(jobRolePageBanner);
 
     }
 

@@ -6,8 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import us_selenium_test.framework.FunctionalTestEdge;
 
-import java.util.List;
-
 public class US003_edge_test extends FunctionalTestEdge {
     private static String indexPageUrl = "http://localhost:7999/";
     private static String capabilitiesPageUrl = "http://localhost:7999/job-capabilities";
@@ -25,10 +23,19 @@ public class US003_edge_test extends FunctionalTestEdge {
     public void isCapabilitiesPageContentIsShow_TC02() {
         edgeDriver.get(capabilitiesPageUrl);
         //Find page content
-        WebElement capabilitiesContent = edgeDriver.findElement(By.xpath("//body/div[3]"));
+        WebElement capabilitiesContent = edgeDriver.findElement(By.className("capabilities"));
         //Check if page content isn't NULL
         Assert.assertNotNull(capabilitiesContent);
+    }
 
+    @Test
+    public void isCapabilitiesBannerIsShow_TC03() {
+        edgeDriver.get(capabilitiesPageUrl);
+        //Find page banner
+        By xpathPageBanner = By.xpath("//h1[contains(text(),'Capabilities')]");
+        WebElement capabilitiesPageBanner = edgeDriver.findElement(xpathPageBanner);
+        //Check if page banner isn't NULL
+        Assert.assertNotNull(capabilitiesPageBanner);
     }
 
 }
