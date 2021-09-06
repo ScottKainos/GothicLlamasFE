@@ -18,7 +18,6 @@ public class US001_chrome_test extends FunctionalTestChrome {
         jobRoleLink.click();
         String URL = driver.getCurrentUrl();
         Assert.assertEquals(jobRolePageUrl, URL );
-        System.out.println(URL);
     }
 
     @Test
@@ -28,12 +27,6 @@ public class US001_chrome_test extends FunctionalTestChrome {
         WebElement jobRolePageContent = driver.findElement(By.xpath("//body/div[3]"));
         //Check if page content isn't NULL
         Assert.assertNotNull(jobRolePageContent);
-        //Shows how many items it has downloaded from the database
-        List<WebElement> listOfElements = driver.findElements(By.tagName("p"));
-        System.out.println("Found paragraphs: " +listOfElements.size());
-        for (int i=0; i<listOfElements.size();i++){
-            System.out.println("Paragraph text: " + listOfElements.get(i).getText());
-        }
 
     }
 

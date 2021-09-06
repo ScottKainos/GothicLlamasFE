@@ -19,7 +19,6 @@ public class US003_chrome_test extends FunctionalTestChrome {
         capabilitiesPage.click();
         String URL = driver.getCurrentUrl();
         Assert.assertEquals(capabilitiesPageUrl, URL);
-        System.out.println(URL);
     }
 
     @Test
@@ -29,18 +28,6 @@ public class US003_chrome_test extends FunctionalTestChrome {
         WebElement capabilitiesContent = driver.findElement(By.xpath("//body/div[3]"));
         //Check if page content isn't NULL
         Assert.assertNotNull(capabilitiesContent);
-
-        //Shows how many columns are in the table
-        List<WebElement> listOfElements = driver.findElements(By.tagName("th"));
-        System.out.println("Found this many columns: " + listOfElements.size());
-        for (int i = 0; i < listOfElements.size(); i++) {
-            System.out.println("Column name in Capabilities Table: " + listOfElements.get(i).getText());
-        }
-
-        //Shows how many rows are in the table
-        List<WebElement> listOfElementsOfTable = driver.findElements(By.tagName("td"));
-        int rowsInTable = listOfElementsOfTable.size() / listOfElements.size();
-        System.out.printf("Found this many rows in Capabilities Table: " + rowsInTable);
     }
 
 }

@@ -30,18 +30,6 @@ public class US002_firefox_test extends FunctionalTestFirefox {
         WebElement jobSpecPageContent = firefoxDriver.findElement(By.xpath("//body/div[3]"));
         //Check if page content isn't NULL
         Assert.assertNotNull(jobSpecPageContent);
-
-        //Shows how many columns are in the table
-        List<WebElement> listOfElements = firefoxDriver.findElements(By.tagName("th"));
-        System.out.println("Found this many columns: " + listOfElements.size());
-        for (int i = 0; i < listOfElements.size(); i++) {
-            System.out.println("Column name: " + listOfElements.get(i).getText());
-        }
-
-        //Shows how many rows are in the table
-        List<WebElement> listOfElementsOfTable = firefoxDriver.findElements(By.tagName("td"));
-        int rowsInTable = listOfElementsOfTable.size() /listOfElements.size() ;
-        System.out.printf("Found this many rows: " + rowsInTable);
     }
 
     @Test

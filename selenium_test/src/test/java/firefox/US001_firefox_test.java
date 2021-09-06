@@ -20,7 +20,6 @@ public class US001_firefox_test extends FunctionalTestFirefox {
         jobRoleLink.click();
         String URL = firefoxDriver.getCurrentUrl();
         Assert.assertEquals(jobRolePageUrl, URL );
-        System.out.println(URL);
     }
 
     @Test
@@ -30,11 +29,6 @@ public class US001_firefox_test extends FunctionalTestFirefox {
         WebElement pageContent = firefoxDriver.findElement(By.xpath("//body/div[3]"));
         //Check if page content isn't NULL
         Assert.assertNotNull(pageContent);
-        //Shows how many items it has downloaded from the database
-        List<WebElement> listOfElements = firefoxDriver.findElements(By.tagName("p"));
-        System.out.println("Found paragraphs: " +listOfElements.size());
-        for (int i=0; i<listOfElements.size();i++){
-            System.out.println("Paragraph text: " + listOfElements.get(i).getText());
-        }
+
     }
 }

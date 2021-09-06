@@ -6,6 +6,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,10 +19,10 @@ public class FunctionalTestChrome {
 
     @BeforeClass
     public static void setUp() {
-        WebDriverManager.chromedriver().browserVersion(browserVersion).setup();
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
+            WebDriverManager.chromedriver().browserVersion(browserVersion).setup();
+            driver = new ChromeDriver();
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        }
 
     @After
     public void cleanUp() {
