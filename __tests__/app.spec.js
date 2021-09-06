@@ -19,6 +19,8 @@ jest.mock('node-fetch', () => mockNodeFetch)
 require('../app.js')
 jest.mock('../ReturnNonDuplicateArrays')
 
+const { expect } = require('@jest/globals')
+const exp = require('constants')
 
 describe('Application testing', () => {
     describe('/job-roles testing', () => {
@@ -159,7 +161,7 @@ describe('Application testing', () => {
     })
 
 
-    test('Start successfully and listen on port 7999', () => {
+    test("Start successfully and listen on port 7999", () => {
         expect(mockApp.listen).toHaveBeenCalledWith(7999, expect.any(Function))
     })
 })

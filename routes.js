@@ -2,7 +2,8 @@ const express = require('express')
 const app = express()
 const nunjucks = require('nunjucks')
 const fetch = require('node-fetch')
-const nonDuplicateMapper = require('./ReturnNonDuplicateArrays')
+const {mapDistinct, returnOne} = require('./ReturnNonDuplicateArrays')
+const { map } = require('async')
 
 /**
  * Only add new .get() methods below current last one
@@ -79,7 +80,7 @@ app.get('/job-capabilities', async function (req, res) {
         throw err
     }
     //fetch non duplicate array (set) of capabilities
-    var capabilities = nonDuplicateMapper.mapDistinct(jobCapability, (object) => object.capability)
+    var capabilities = mapDistinct(jobCapability, (object) => object.capability)
 
     res.render('job-capability', {jobCapability, capabilities})
 })
@@ -101,7 +102,7 @@ app.get('/band-levels', async function (req, res) {
         throw err
     }
     //fetch set of band levels
-    var bandLevelsSet = nonDuplicateMapper.mapDistinct(bandLevels, (object) => object.bandLevel)
+    var bandLevelsSet = mapDistinct(bandLevels, (object) => object.bandLevel)
     res.render('band-levels', {bandLevels, bandLevelsSet})
 })
 
