@@ -141,7 +141,7 @@ describe('Application testing', () => {
             //tracks all app.get calls when require('../app.js') line is run, get ('job-roles') is second hence [1][1] call
             const behaviour = mockApp.get.mock.calls[4][1] // grab the second [1] param of the second [1] call
             const res = { render: jest.fn() }
-                //call function used by get handler
+
             await behaviour(null, res)
             await expect(res.render).toHaveBeenCalledWith('band-levels', {bandLevels: {data: 'Test Data'}})
         })
@@ -149,10 +149,9 @@ describe('Application testing', () => {
 
 
     test("root route serves index html page", () => {
-        //call get function here?
         expect(mockApp.get).toHaveBeenCalledWith('/', expect.any(Function))
 
-        const behaviour = mockApp.get.mock.calls[0][1] // grab the second [1] param of the first [0] call
+        const behaviour = mockApp.get.mock.calls[0][1] 
         const res = { render: jest.fn() }
         //call function used by get handler
         behaviour(null, res)
