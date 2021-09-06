@@ -17,7 +17,7 @@ const mockNodeFetch = jest.fn()
 jest.mock('node-fetch', () => mockNodeFetch)
     
 require('../app.js')
-jest.mock('../ReturnNonDuplicateArrays')
+jest.mock('../utils')
 
 const { expect } = require('@jest/globals')
 const exp = require('constants')

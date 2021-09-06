@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const nunjucks = require('nunjucks')
 const fetch = require('node-fetch')
-const { mapDistinct } = require('./ReturnNonDuplicateArrays')
+const { mapDistinct } = require('./utils')
 
 /**
  * Only add new .get() methods below current last one
