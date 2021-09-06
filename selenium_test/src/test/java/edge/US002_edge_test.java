@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import us_selenium_test.framework.FunctionalTestEdge;
 
-import java.util.List;
 
 public class US002_edge_test extends FunctionalTestEdge {
     private String indexPageUrl = "http://localhost:7999";
@@ -19,7 +18,6 @@ public class US002_edge_test extends FunctionalTestEdge {
         jobRoleLink.click();
         String URL = edgeDriver.getCurrentUrl();
         Assert.assertEquals(jobSpecPageUrl, URL);
-        System.out.println(URL);
     }
 
     @Test
@@ -29,18 +27,6 @@ public class US002_edge_test extends FunctionalTestEdge {
         WebElement jobSpecPageContent = edgeDriver.findElement(By.xpath("//body/div[3]"));
         //Check if page content isn't NULL
         Assert.assertNotNull(jobSpecPageContent);
-
-        //Shows how many columns are in the table
-        List<WebElement> listOfElements = edgeDriver.findElements(By.tagName("th"));
-        System.out.println("Found this many columns: " + listOfElements.size());
-        for (int i = 0; i < listOfElements.size(); i++) {
-            System.out.println("Column name: " + listOfElements.get(i).getText());
-        }
-
-        //Shows how many rows are in the table
-        List<WebElement> listOfElementsOfTable = edgeDriver.findElements(By.tagName("td"));
-        int rowsInTable = listOfElementsOfTable.size() /listOfElements.size() ;
-        System.out.printf("Found this many rows: " + rowsInTable);
     }
 
     @Test
