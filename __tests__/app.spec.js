@@ -170,7 +170,7 @@ describe('Application testing', () => {
  * is down
  * @param {*} errorExpected , the error message that expected
  */
-async function unhappyPathErrorThrown( methodNumber   ){
+async function unhappyPathErrorThrown(methodNumber){
     let thrownError = {
         //specific error thrown back when java API endpoint is down
         message:   "Cannot read property 'status' of undefined"
