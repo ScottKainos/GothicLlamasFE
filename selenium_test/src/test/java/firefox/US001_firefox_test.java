@@ -1,7 +1,7 @@
 package firefox;
 
 import org.junit.Assert;
-import org.junit.Test;
+import org.testng.annotations.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import us_selenium_test.framework.FunctionalTestFirefox;

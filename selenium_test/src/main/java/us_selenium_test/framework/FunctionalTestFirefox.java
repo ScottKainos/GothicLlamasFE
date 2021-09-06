@@ -5,7 +5,10 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 import java.util.concurrent.TimeUnit;
 
@@ -16,20 +19,18 @@ public class FunctionalTestFirefox {
     protected static WebDriver firefoxDriver;
     protected final static String browserVersion = System.getProperty(BROWSER_VERSION);
 
-    @BeforeClass
-    public static void setUp() {
+    @BeforeTest
+    public void launchBrowser() {
         WebDriverManager.firefoxdriver().browserVersion(browserVersion).setup();
         firefoxDriver = new FirefoxDriver();
         firefoxDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        firefoxDriver.manage().window().maximize();
     }
 
-    @After
-    public void cleanUp() {
-        firefoxDriver.manage().deleteAllCookies();
+    @AfterTest
+    public void closeBrowser() {
+        firefoxDriver.quit();
     }
 
-    @AfterClass
-    public static void tearDown() {
-        firefoxDriver.close();
-    }
+
 }
