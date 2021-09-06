@@ -26,17 +26,16 @@ app.get('/', function (req, res) {
 app.get('/job-roles', async function (req, res) {
     let apiData= {}
     try{
-        let response = await fetch('http://localhost:8000/api/JobRoles').catch(e => { console.log(e) })    
+        let response = await fetch('http://localhost:8000/api/JobRoles').catch(e => {})    
         //ensure page has been gathered
         if (response.status === 200) {
-            let data = await response.json().catch(e => { console.log(e) })
+            let data = await response.json().catch(e => {})
             // handle data
             apiData = data
         }else{
             throw err
         }
     }catch(err){
-        console.log("Endpoint unreachable.")
         throw err
     }
     res.render('job-roles', {apiData})
@@ -47,17 +46,16 @@ app.get('/job-roles', async function (req, res) {
 app.get('/job-spec', async function (req, res) {
     let jobSpec = {}
     try{
-        let response = await fetch('http://localhost:8000/api/JobSpecifications').catch(e => { console.log(e) })    
+        let response = await fetch('http://localhost:8000/api/JobSpecifications').catch(e => {})    
         //ensure page has been gathered
         if (response.status === 200) {
-            let data = await response.json().catch(e => { console.log(e) })
+            let data = await response.json().catch(e => {})
             // handle data
             jobSpec = data
         }else{
             throw err
         }
     }catch(err){
-        console.log("Endpoint unreachable.")
         throw err
     }
     res.render('job-spec', {jobSpec})
@@ -67,10 +65,10 @@ app.get('/job-spec', async function (req, res) {
 app.get('/job-capabilities', async function (req, res) {
     let jobCapability = {}
     try{
-        let response = await fetch('http://localhost:8000/api/JobCapability').catch(e => { console.log(e) })    
+        let response = await fetch('http://localhost:8000/api/JobCapability').catch(e => {})    
         //ensure page has been gathered
         if (response.status === 200) {
-            let data = await response.json().catch(e => { console.log(e) })
+            let data = await response.json().catch(e => {})
             // handle data
             jobCapability = data
 
@@ -78,7 +76,6 @@ app.get('/job-capabilities', async function (req, res) {
             throw err
         }
     }catch(err){
-        console.log("Endpoint unreachable or returned no body.")
         throw err
     }
     //fetch non duplicate array (set) of capabilities
@@ -91,17 +88,16 @@ app.get('/job-capabilities', async function (req, res) {
 app.get('/band-levels', async function (req, res) {
     let bandLevels = {}
     try{
-        let response = await fetch('http://localhost:8000/api/BandLevels').catch(e => { console.log(e) })    
+        let response = await fetch('http://localhost:8000/api/BandLevels').catch(e => {})    
         //ensure page has been gathered
         if (response.status === 200) {
-            let data = await response.json().catch(e => { console.log(e) })
+            let data = await response.json().catch(e => {})
             // handle data
             bandLevels = data
         }else{
             throw err
         }
     }catch(err){
-        console.log("Endpoint unreachable or returned no body.")
         throw err
     }
     //fetch set of band levels
