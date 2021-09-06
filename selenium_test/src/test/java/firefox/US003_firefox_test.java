@@ -19,17 +19,25 @@ public class US003_firefox_test extends FunctionalTestFirefox {
         capabilitiesPage.click();
         String URL = firefoxDriver.getCurrentUrl();
         Assert.assertEquals(capabilitiesPageUrl, URL);
-
     }
 
     @Test
     public void isCapabilitiesPageContentIsShow_TC02() {
         firefoxDriver.get(capabilitiesPageUrl);
         //Find page content
-        WebElement capabilitiesContent = firefoxDriver.findElement(By.xpath("//body/div[3]"));
+        WebElement capabilitiesContent = firefoxDriver.findElement(By.className("capabilities"));
         //Check if page content isn't NULL
         Assert.assertNotNull(capabilitiesContent);
+    }
 
+    @Test
+    public void isCapabilitiesBannerIsShow_TC03(){
+        firefoxDriver.get(capabilitiesPageUrl);
+        //Find page banner
+        By xpathPageBanner = By.xpath("//h1[contains(text(),'Capabilities')]");
+        WebElement capabilitiesPageBanner = firefoxDriver.findElement(xpathPageBanner);
+        //Check if page banner isn't NULL
+        Assert.assertNotNull(capabilitiesPageBanner);
     }
 
 }
