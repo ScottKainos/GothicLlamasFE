@@ -6,8 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import us_selenium_test.framework.FunctionalTestEdge;
 
-import java.util.List;
-
 public class US001_edge_test extends FunctionalTestEdge {
     private static String indexPageUrl = "http://localhost:7999/";
     private static String jobRolePageUrl = "http://localhost:7999/job-roles";

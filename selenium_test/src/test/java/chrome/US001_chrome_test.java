@@ -1,6 +1,5 @@
 package chrome;
 
-import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -12,16 +11,16 @@ public class US001_chrome_test extends FunctionalTestChrome {
     private static String jobRolePageUrl = "http://localhost:7999/job-roles";
 
     @Test
-    public void isJobRolePageWorkingCorrectly_TC01(){
+    public void isJobRolePageWorkingCorrectly_TC01() {
         driver.get(indexPageUrl);
         WebElement jobRoleLink = driver.findElement(By.linkText("Job Roles"));
         jobRoleLink.click();
         String URL = driver.getCurrentUrl();
-        Assert.assertEquals(jobRolePageUrl, URL );
+        Assert.assertEquals(jobRolePageUrl, URL);
     }
 
     @Test
-    public void isJobRolePageContentIsShow_TC02(){
+    public void isJobRolePageContentIsShow_TC02() {
         driver.get(jobRolePageUrl);
         //Find page content
         WebElement jobRolePageContent = driver.findElement(By.xpath("//body/div[3]"));

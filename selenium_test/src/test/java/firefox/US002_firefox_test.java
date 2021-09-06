@@ -6,8 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import us_selenium_test.framework.FunctionalTestFirefox;
 
-import java.util.List;
-
 public class US002_firefox_test extends FunctionalTestFirefox {
 
     private String indexPageUrl = "http://localhost:7999";

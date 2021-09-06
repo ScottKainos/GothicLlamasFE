@@ -6,8 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import us_selenium_test.framework.FunctionalTestChrome;
 
-import java.util.List;
-
 public class US002_chrome_test extends FunctionalTestChrome {
     private String indexPageUrl = "http://localhost:7999";
     private String jobSpecPageUrl = "http://localhost:7999/job-spec";
