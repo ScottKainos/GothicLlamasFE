@@ -1,11 +1,11 @@
 package us_selenium_test.framework;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,21 +15,18 @@ public class FunctionalTestEdge {
     protected static WebDriver edgeDriver;
     protected final static String browserVersion = System.getProperty(BROWSER_VERSION);
 
-    @BeforeClass
-    public static void setUp() {
+
+    @BeforeTest
+    public void launchBrowser() {
         WebDriverManager.edgedriver().browserVersion(browserVersion).setup();
         edgeDriver = new EdgeDriver();
         edgeDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        edgeDriver.manage().window().maximize();
     }
 
-    @After
-    public void cleanUp() {
-        edgeDriver.manage().deleteAllCookies();
-    }
-
-    @AfterClass
-    public static void tearDown() {
-        edgeDriver.close();
+    @AfterTest
+    public void closeBrowser() {
+        edgeDriver.quit();
     }
 
 }
