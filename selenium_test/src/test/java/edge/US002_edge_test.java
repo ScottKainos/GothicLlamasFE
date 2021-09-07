@@ -34,7 +34,7 @@ public class US002_edge_test extends FunctionalTestEdge {
     public void isJobSpecPageFirstLinkIsWorking_TC03() {
         // Chose first link in table
         edgeDriver.get(jobSpecPageUrl);
-        By xpathForFirstLink = By.xpath("//body[1]/div[3]/table[1]/tbody[1]/tr[1]/td[3]/a[1]");
+        By xpathForFirstLink = By.xpath("/html/body/div[4]/table/tbody[1]/tr/td[3]/a");
         WebElement linkFrom1RowInTable = edgeDriver.findElement(xpathForFirstLink);
         linkFrom1RowInTable.click();
         String URL1FromTable = edgeDriver.getCurrentUrl();
@@ -46,7 +46,7 @@ public class US002_edge_test extends FunctionalTestEdge {
     public void isJobSpecPageTenLinkIsWorking_TC04() {
         // Chose ten link in table
         edgeDriver.get(jobSpecPageUrl);
-        By xpathForTenLink = By.xpath("//body[1]/div[3]/table[1]/tbody[10]/tr[1]/td[3]/a[1]");
+        By xpathForTenLink = By.xpath("/html/body/div[4]/table/tbody[10]/tr/td[3]/a");
         WebElement linkFrom10RowInTable = edgeDriver.findElement(xpathForTenLink);
         linkFrom10RowInTable.click();
         String URL10FromTable = edgeDriver.getCurrentUrl();
