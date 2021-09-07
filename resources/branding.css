@@ -68,7 +68,6 @@ td, th, tr {
     transform: translate(-50%, -50%);
     height: 60px;
 }
-
 .topnav {
     background-color: #61a83f;
     overflow: hidden;
@@ -78,7 +77,6 @@ td, th, tr {
     white-space: nowrap;
     display: inline-flex;
 }
-
 .topnav a {
     float: left;
     color: #ffffff;
@@ -92,13 +90,11 @@ td, th, tr {
 .topnav a:hover {
     background-color: #004631;
 }
-
 .bannerHolder{
     width: 10%;
     padding-left: 2%;
     padding-right: 2%;
 }
-
 .navHolder{
     display: flex;
 }
