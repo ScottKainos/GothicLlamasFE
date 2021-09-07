@@ -75,6 +75,8 @@ td, th, tr {
     float: right;
     width: 85%;
     vertical-align: middle;
+    white-space: nowrap;
+    display: inline-flex;
 }
 
 .topnav a {
