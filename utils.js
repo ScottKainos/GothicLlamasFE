@@ -8,4 +8,4 @@ function mapDistinct(inputArray, mapper){
     return new Set(inputArray.map(mapper))
 }
 
-module.exports.mapDistinct = mapDistinct
+module.exports = { mapDistinct }
