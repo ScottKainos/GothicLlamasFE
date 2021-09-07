@@ -4,116 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="branding.css"/>
     {% block pageTitle %}
         <title> Kainos Career Lattice Management </title>
     {% endblock %}
-    <style>
-body {
-  font-family: Century Gothic, sans-serif;
- }
-.header {
-  padding: 10px;
-  text-align: left;
-  background: white;
-  color: #000080;
-  font-size: 20px;
-}
-.inline {
-  display: inline-block;
-  vertical-align: middle;
-  padding: 10px;
-  font-size: 20px;
-}
-.roles {
-    text-align: center;
-    margin-bottom: 10px;
-}
-.roles, .capabilities, .roles-per-band {
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-table {
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-}
-
-td, th, tr {
-    border: 1px solid #000000;
-    padding: 0.3%;
-}
-.container {
-    position: relative;
-    display: flex;
-    colour: black;
-}
-.top-left {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-}
-.align-left {
-    width: 75%;
-    text-align: left;
-    padding: 1%;
-    margin: 1%;
-    color: black;
-}
-.align-right {
-    width: 15%;
-    padding: 1%;
-    text-align: left;
-    float: right;
-    margin: 1%;
-    color: #02075d;
-    border: 1px solid #000000;
-    font-style: italic;
-}
-.quote {
-    font-weight: bold;
-    margin-top: 15%;
-}
-.heading {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 60px;
-}
-.tbanner {
-    position: relative;
-    text-align: center;
-    color: black;
-    height: 60px;
-    margin-bottom: 40px;
-    font-family: Century Gothic, sans-serif;
-}
-.select {
-    padding-top: 20px;
-    text-align: center;
-}
-
-</style>
 </head>
 <body style="background-color: rgb(255, 255, 255);">
-<div class="header">
-    <div class="inline">
-        <a href="/"><img src="/kainoslogo.jpg" alt="kainos logo" width="150" height="50"></a>
+<div class="tbanner">
+    <img src="/whiteBanner.png" alt="white banner" style="width:100%;" height="250px" >
+</div>
+<div class = "navHolder">
+    <div class = "bannerHolder">
+        <a href="/" class = "kainosBanner"><img src="/kainoslogo.png" alt="kainos logo" width="100%" height="85%"></a>
     </div>
-    <div class="inline">
-    <a href="/job-roles" style="display:inline-block;">Job Roles</a>
-    </div>
-    <div class="inline">
-    <a href="/job-spec" style="display:inline-block;">Job Specification</a>
-    </div>
-    <div class="inline">
-        <a href="/job-capabilities" style="display:inline-block;">Capabilities</a>
-    </div>
-    <div class="inline">
-        <a href="/band-levels" style="display:inline-block;">Band Levels</a>
+    <div class="topnav">
+        <a href="/job-roles">Job Roles</a>
+        <a href="/job-spec">Job Specification</a>
+        <a href="/job-capabilities">Capabilities</a>
+        <a href="/band-levels">Band Levels</a>
     </div>
 </div>
+</br>
 
 {% block content %}
 {% endblock %}  
