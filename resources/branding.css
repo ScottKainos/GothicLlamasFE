@@ -83,8 +83,8 @@ td, th, tr {
     text-align: center;
     margin: 1%;
     padding: 1%;
-    padding-left: 7.5%;
-    padding-right: 7.5%;
+    width:21%;
+   
     text-decoration: none;
 }
 .topnav a:hover {
